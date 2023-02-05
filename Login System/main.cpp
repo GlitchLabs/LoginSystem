@@ -6,9 +6,10 @@
 //
 
 #include <iostream>
+#include "Login.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    Login loginScreen = Login();
+    loginScreen.start();
     return 0;
 }

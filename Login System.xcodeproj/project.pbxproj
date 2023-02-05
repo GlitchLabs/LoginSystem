@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DB4B2627298E7BF500777701 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB4B2626298E7BF500777701 /* main.cpp */; };
+		DB4B262F298E7CA700777701 /* Login.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB4B262D298E7CA700777701 /* Login.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		DB4B2623298E7BF500777701 /* Login System */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Login System"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4B2626298E7BF500777701 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		DB4B262D298E7CA700777701 /* Login.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Login.cpp; sourceTree = "<group>"; };
+		DB4B262E298E7CA700777701 /* Login.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Login.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				DB4B2626298E7BF500777701 /* main.cpp */,
+				DB4B262D298E7CA700777701 /* Login.cpp */,
+				DB4B262E298E7CA700777701 /* Login.hpp */,
 			);
 			path = "Login System";
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB4B2627298E7BF500777701 /* main.cpp in Sources */,
+				DB4B262F298E7CA700777701 /* Login.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
