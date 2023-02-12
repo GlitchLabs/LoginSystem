@@ -24,9 +24,13 @@ public:
 private:
     std::string m_username;
     std::string m_password;
+    std::string m_file = "/Users/dakirthompson/Glitch Labs/userInfoFile.txt";
+    bool m_LoggedIn = false;
+    bool m_correctUserName = false;
+    bool m_correctPassWord = false;
 private://Private methods
     void getInfo();
     void saveInfo();
-    
+    void verifyNewUser(std::string uInfo);
     
 };
