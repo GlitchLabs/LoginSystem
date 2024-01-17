@@ -28,16 +28,20 @@ void Login::start()
             std::cin >> un;
             std::cout << "Enter Password: ";
             std::cin >> pw;
-            std::cout << "\n username is : \n" <<un << " password is : " << pw <<std::endl;
+            std::cout << "\n username is : " <<un << " ----      password is : " << pw <<std::endl;
             m_username = un;
             m_password = pw;
             getInfo();
+            std::cout<< "m_correctUserName " << m_correctUserName << "\nm_CorrectPassword " <<m_correctPassWord <<std::endl;
             if(m_correctUserName == true && m_correctPassWord == true)
             {
                 m_LoggedIn = true;
                 std::cout << "you are Logged in\n";
             }
-            std::cout << "You are still not logged in\n";
+            else
+            {
+                std::cout << "You are still not logged in\n";
+            }
             break;
         case 2://registration of new user
             std::cout << " Input: " << answer << " Welcome new user" <<std::endl;
@@ -55,11 +59,8 @@ void Login::start()
             break;
     }
 }
-void Login::saveInfo()
-{
+void Login::saveInfo(){
     std::ofstream userInfoFile;
-    //std::string file = "/Users/dakirthompson/Glitch Labs/userInfoFile.txt";
-    //I need to find the std::ios:: flag that will tell the ofstrema to add to the next line.
     userInfoFile.open(m_file, std::ios::app);
     std::string userInfo = m_username + ":" + m_password;
     std::cout << "\n what is going into the file :" << userInfo << std::endl;
@@ -72,36 +73,25 @@ void Login::saveInfo()
     while( !readUserInfo.eof() )
     {
         readUserInfo >> dataFromFile;
-        std::cout << "What comes out of the file: "<< dataFromFile <<std::endl;
+       // std::cout << "What comes out of the file: "<< dataFromFile <<std::endl;
     }
     readUserInfo.close();
     std::cout << "verifying your login info\n";
     verifyNewUser(userInfo);
 }
     
-void Login::getInfo()
-{
-    std::cout <<"looking for you info"<<std::endl;
-    //steps
-    //step1 open file
+void Login::getInfo(){
+    std::cout <<"looking for your info"<<std::endl;
     std::ifstream fileReader;
-    //std::string file = "/Users/dakirthompson/Glitch Labs/userInfoFile.txt";
     std::string fileData;
-    //char userInfo[200];
     fileReader.open(m_file, std::ios::in);
     if ( fileReader.is_open() )
     {
-        //std::cout << "The file is open "<< std::endl;
         if(!fileReader.eof())
         {
             while(!fileReader.eof())
             {
-                //std::cout <<"Searching inside files for user info\n";
-                //fileReader.getline(userInfo, 200);
                 fileReader >> fileData;
-                //std::cout << fileData << std::endl;
-            //std::cout << fileData<<std::endl;
-                //std::cout << "verifying your login info\n";
                 verifyNewUser(fileData);
             }
         }
@@ -118,7 +108,6 @@ void Login::getInfo()
         fileCreater.close();
         getInfo();
     }
-    
 }
 void Login::verifyNewUser(std::string uInfo)
 {
@@ -133,16 +122,18 @@ void Login::verifyNewUser(std::string uInfo)
     std::cout << lsPassWord<<std::endl;
     if(lsUserName == m_username)
     {
-        std::cout << "you gave us " << m_username << " and we found " << lsUserName << " that matched\n\n";
+        //std::cout << "you gave us " << m_username << " and we found " << lsUserName << " that matched\n\n";
         m_correctUserName = true;
     }
     if(lsPassWord == m_password)
     {
-        std::cout << "you gave us " << m_password << " and we found " << lsPassWord << " that matched\n\n";
-        m_password = true;
+        //std::cout << "you gave us " << m_password << " and we found " << lsPassWord << " that matched\n\n";
+        m_correctPassWord = true;
     }
     if(m_correctUserName == true && m_correctPassWord == true)
     {
+        m_LoggedIn = true;
+        std::cout<< m_username<<" you are logged in"<<std::endl;
         
     }
     fileReader.close();
